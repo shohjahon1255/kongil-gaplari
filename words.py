@@ -5,7 +5,7 @@ WORDS = [
     "daryo", "tog", "gul", "bog", "shamol",
     "yomgir", "qor", "bahor", "yoz", "kuz",
     "qish", "ota", "ona", "aka", "uka",
-    "opa", "singil", "oila", "uy", "xona",
+    "opa", "singil", "oila", "uy", "xona","raketa",
 
     "eshik", "deraza", "stol", "kursi", "sumka",
     "ruchka", "chiroq", "devor", "pol", "shift",
