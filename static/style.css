@@ -228,3 +228,22 @@ button {
     text-align: center;
     font-size: 22px;
 }
+@media (max-width: 768px) {
+    #level {
+        font-size: 24px;
+    }
+
+    #scrambled {
+        font-size: 55px;
+    }
+
+    #answer {
+        font-size: 20px;
+        padding: 16px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 15px 38px;
+    }
+}
