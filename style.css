@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff0844, #ff4b6e, #ff758c, #ffb199);
+    background-size: 400% 400%;
+    animation: bgMove 8s ease infinite;
+}
+
+.center {
+    min-height: 100vh;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle, rgba(255,255,255,0.20), transparent 55%);
+}
+
+h1 {
+    font-size: 58px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #fff,
+        0 0 45px #ff2d75,
+        0 0 70px #ff0055;
+    animation: glow 1.8s infinite alternate;
+}
+
+p {
+    font-size: 24px;
+    max-width: 650px;
+    margin-bottom: 38px;
+    line-height: 1.5;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.35);
+}
+
+.btn {
+    display: inline-block;
+    padding: 18px 50px;
+    background: white;
+    color: #ff0844;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    border-radius: 50px;
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.9),
+        0 12px 30px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow:
+        0 0 30px white,
+        0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* Yurakchalar */
+body::before {
+    content: "❤️ 💖 💘 💝 💞 ❤️ 💖 💘";
+    position: fixed;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    font-size: 34px;
+    letter-spacing: 35px;
+    opacity: 0.28;
+    animation: hearts 9s linear infinite;
+}
+
+body::after {
+    content: "💗 💕 ❤️ 💖 💞 💘 💝 💗";
+    position: fixed;
+    top: -120px;
+    left: 0;
+    width: 100%;
+    font-size: 26px;
+    letter-spacing: 45px;
+    opacity: 0.22;
+    animation: hearts 13s linear infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 10px white,
+            0 0 25px #fff,
+            0 0 45px #ff2d75;
+    }
+    to {
+        text-shadow:
+            0 0 20px white,
+            0 0 40px #fff,
+            0 0 70px #ff2d75,
+            0 0 100px #ff0055;
+    }
+}
+
+@keyframes hearts {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+/* Telefon uchun */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 15px 38px;
+    }
+
+    body::before {
+        font-size: 24px;
+        letter-spacing: 18px;
+    }
+
+    body::after {
+        font-size: 20px;
+        letter-spacing: 20px;
+    }
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+#level {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#scrambled {
+    font-size: 75px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow:
+        0 0 15px white,
+        0 0 35px #fff,
+        0 0 60px #ff0055;
+}
+
+#answer {
+    width: 85%;
+    max-width: 420px;
+    padding: 18px 22px;
+    font-size: 22px;
+    border: none;
+    outline: none;
+    border-radius: 18px;
+    text-align: center;
+}
+
+button {
+    padding: 17px 45px;
+    font-size: 22px;
+    font-weight: 800;
+    border: none;
+    border-radius: 50px;
+    background: white;
+    color: #ff0844;
+}
+
+#msg {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    width: 85%;
+    max-width: 420px;
+    padding: 30px;
+    background: white;
+    color: #ff0844;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 22px;
+}
+
+@media (max-width: 768px) {
+    #level {
+        font-size: 24px;
+    }
+
+    #scrambled {
+        font-size: 55px;
+    }
+
+    #answer {
+        font-size: 20px;
+        padding: 16px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 15px 38px;
+    }
+}
