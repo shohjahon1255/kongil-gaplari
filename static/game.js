@@ -1,23 +1,14 @@
-async function loadLevel() {
-    const res = await fetch("/api/level");
-    const data = await res.json();
+async function load() {
+    let res = await fetch("/api/level");
+    let data = await res.json();
 
     if (data.end) {
-        document.querySelector(".container").innerHTML = 
-            <h1>🎉 Tabriklaymiz!</h1>
-            <p>Siz barcha so‘zlarni topdingiz ❤️</p>
-            <a class="btn" href="/">Qayta boshlash</a>
-        ;
-        hearts();
+        document.body.innerHTML = "<h1>O‘yin tugadi ❤️ — Shohjahondan</h1>";
         return;
     }
 
-    document.getElementById("level").innerText =
-        Level: ${data.level} | Score: ${data.score};
-
+    document.getElementById("level").innerText = "Bosqich " + data.level;
     document.getElementById("scrambled").innerText = data.scrambled;
-    document.getElementById("answer").value = "";
-    document.getElementById("msg").innerText = "";
 
     if (data.pause) {
         showPause(data.pause_msg);
@@ -25,61 +16,32 @@ async function loadLevel() {
 }
 
 async function check() {
-    const answer = document.getElementById("answer").value;
+    let answer = document.getElementById("answer").value;
 
-    const res = await fetch("/api/answer", {
+    let res = await fetch("/api/answer", {   // 🔥 to‘g‘rilandi
         method: "POST",
         headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({answer: answer})
+        body: JSON.stringify({ answer })
     });
 
-    const data = await res.json();
-    const msg = document.getElementById("msg");
+    let data = await res.json();
 
     if (data.correct) {
-        msg.className = "good";
-        msg.innerText = "❤️ To‘g‘ri javob!";
-        hearts();
-
-        setTimeout(loadLevel, 1200);
+        document.getElementById("msg").innerText = "To‘g‘ri ✅";
+        document.getElementById("answer").value = "";
+        load();
     } else {
-        msg.className = "bad";
-        msg.innerText = "❌ Noto‘g‘ri, yana urinib ko‘ring";
+        document.getElementById("msg").innerText = "Xato ❌";
     }
 }
 
 function showPause(text) {
-    const pause = document.getElementById("pause");
-    const pauseText = document.getElementById("pauseText");
-
-    if (!pause || !pauseText) return;
-
-    pauseText.innerText = text;
-    pause.style.display = "flex";
+    document.getElementById("pauseText").innerText = text;
+    document.getElementById("pause").style.display = "flex";
 
     setTimeout(() => {
-        pause.style.display = "none";
-    }, 3500);
+        document.getElementById("pause").style.display = "none";
+    }, 4000);
 }
 
-function hearts() {
-    for (let i = 0; i < 10; i++) {
-        const heart = document.createElement("div");
-        heart.className = "heart";
-        heart.innerText = "❤️";
-        heart.style.left = Math.random() * 100 + "vw";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 2500);
-    }
-}
-
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        check();
-    }
-});
-
-loadLevel();
+load();
