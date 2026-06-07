@@ -1,14 +1,31 @@
-async function load() {
-    let res = await fetch("/api/level");
-    let data = await res.json();
+let currentLevel = 0;
+
+async function loadLevel() {
+    const res = await fetch("/api/level");
+    const data = await res.json();
 
     if (data.end) {
-        document.body.innerHTML = "<h1>O‘yin tugadi ❤️ — Shohjahondan</h1>";
+        document.querySelector(".container").innerHTML = 
+            <h1>🎉 Tabriklaymiz!</h1>
+            <p style="font-size:22px; line-height:1.5;">
+                Siz barcha so‘zlarni topdingiz ❤️<br>
+                Bu o‘yinni oxirigacha yetkazdingiz.
+            </p>
+            <h2>🏆 Yakuniy ball: ${data.score || ""}</h2>
+            <a class="btn" href="/">Qayta boshlash</a>
+        ;
+        hearts();
         return;
     }
 
-    document.getElementById("level").innerText = "Bosqich " + data.level;
+    currentLevel = data.level;
+
+    document.getElementById("level").innerText =
+        Level: ${data.level} | Score: ${data.score};
+
     document.getElementById("scrambled").innerText = data.scrambled;
+    document.getElementById("answer").value = "";
+    document.getElementById("msg").innerText = "";
 
     if (data.pause) {
         showPause(data.pause_msg);
@@ -16,32 +33,72 @@ async function load() {
 }
 
 async function check() {
-    let answer = document.getElementById("answer").value;
+    const answer = document.getElementById("answer").value;
 
-    let res = await fetch("/api/answer", {   // 🔥 to‘g‘rilandi
+    const res = await fetch("/api/answer", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({ answer })
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ answer: answer })
     });
 
-    let data = await res.json();
+    const data = await res.json();
+    const msg = document.getElementById("msg");
 
     if (data.correct) {
-        document.getElementById("msg").innerText = "To‘g‘ri ✅";
-        document.getElementById("answer").value = "";
-        load();
+        msg.className = "good";
+        msg.innerText = "❤️ To‘g‘ri javob!";
+        hearts();
+
+        setTimeout(() => {
+            loadLevel();
+        }, 1200);
     } else {
-        document.getElementById("msg").innerText = "Xato ❌";
+        msg.className = "bad";
+        msg.innerText = "❌ Noto‘g‘ri, yana urinib ko‘ring";
     }
 }
 
-function showPause(text) {
-    document.getElementById("pauseText").innerText = text;
-    document.getElementById("pause").style.display = "flex";
+async function skip() {
+    await fetch("/api/skip", {
+        method: "POST"
+    });
 
-    setTimeout(() => {
-        document.getElementById("pause").style.display = "none";
-    }, 4000);
+    loadLevel();
 }
 
-load();
+function showPause(text) {
+    const pause = document.getElementById("pause");
+    const pauseText = document.getElementById("pauseText");
+
+    pauseText.innerText = text;
+    pause.style.display = "flex";
+
+    setTimeout(() => {
+        pause.style.display = "none";
+    }, 3500);
+}
+
+function hearts() {
+    for (let i = 0; i < 12; i++) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerText = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDelay = Math.random() * 0.5 + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 2500);
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        check();
+    }
+});
+
+loadLevel();
