@@ -1,185 +1,230 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     min-height: 100vh;
-    background: linear-gradient(135deg, #160018, #33001f, #0b0b0b);
+    font-family: 'Segoe UI', Arial, sans-serif;
     color: white;
-    font-family: Arial, sans-serif;
     text-align: center;
-    overflow-x: hidden;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ff0844, #ff4b6e, #ff758c, #ffb199);
+    background-size: 400% 400%;
+    animation: bgMove 8s ease infinite;
 }
 
-.center,
-.container {
-    width: 92%;
-    max-width: 520px;
-    margin: 70px auto;
-    padding: 28px 22px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 0 35px rgba(255, 0, 120, 0.25);
-    backdrop-filter: blur(10px);
+.center {
+    min-height: 100vh;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle, rgba(255,255,255,0.20), transparent 55%);
 }
 
 h1 {
-    font-size: 42px;
-    margin-bottom: 12px;
+    font-size: 58px;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    text-shadow:
+        0 0 10px white,
+        0 0 25px #fff,
+        0 0 45px #ff2d75,
+        0 0 70px #ff0055;
+    animation: glow 1.8s infinite alternate;
 }
 
-h2 {
+p {
     font-size: 24px;
+    max-width: 650px;
+    margin-bottom: 38px;
+    line-height: 1.5;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.35);
+}
+
+.btn {
+    display: inline-block;
+    padding: 18px 50px;
+    background: white;
+    color: #ff0844;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: 800;
+    border-radius: 50px;
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.9),
+        0 12px 30px rgba(0,0,0,0.35);
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.08) translateY(-4px);
+    box-shadow:
+        0 0 30px white,
+        0 18px 40px rgba(0,0,0,0.45);
+}
+
+/* Yurakchalar */
+body::before {
+    content: "❤️ 💖 💘 💝 💞 ❤️ 💖 💘";
+    position: fixed;
+    top: -80px;
+    left: 0;
+    width: 100%;
+    font-size: 34px;
+    letter-spacing: 35px;
+    opacity: 0.28;
+    animation: hearts 9s linear infinite;
+}
+
+body::after {
+    content: "💗 💕 ❤️ 💖 💞 💘 💝 💗";
+    position: fixed;
+    top: -120px;
+    left: 0;
+    width: 100%;
+    font-size: 26px;
+    letter-spacing: 45px;
+    opacity: 0.22;
+    animation: hearts 13s linear infinite;
+}
+
+@keyframes bgMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 10px white,
+            0 0 25px #fff,
+            0 0 45px #ff2d75;
+    }
+    to {
+        text-shadow:
+            0 0 20px white,
+            0 0 40px #fff,
+            0 0 70px #ff2d75,
+            0 0 100px #ff0055;
+    }
+}
+
+@keyframes hearts {
+    0% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(110vh);
+    }
+}
+
+/* Telefon uchun */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 15px 38px;
+    }
+
+    body::before {
+        font-size: 24px;
+        letter-spacing: 18px;
+    }
+
+    body::after {
+        font-size: 20px;
+        letter-spacing: 20px;
+    }
+}
+
+.container {
+    min-height: 100vh;
+    width: 100%;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+}
+
+#level {
+    font-size: 28px;
+    font-weight: 700;
 }
 
 #scrambled {
-    font-size: 48px;
-    letter-spacing: 8px;
-    color: #ff4fa3;
-    text-shadow: 0 0 18px rgba(255, 79, 163, 0.8);
+    font-size: 75px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow:
+        0 0 15px white,
+        0 0 35px #fff,
+        0 0 60px #ff0055;
 }
 
-input {
-    width: 90%;
-    padding: 16px;
-    border-radius: 15px;
+#answer {
+    width: 85%;
+    max-width: 420px;
+    padding: 18px 22px;
+    font-size: 22px;
     border: none;
     outline: none;
-    font-size: 20px;
+    border-radius: 18px;
     text-align: center;
-    margin: 12px 0;
 }
 
-button,
-.btn {
-    display: inline-block;
-    width: 90%;
-    margin-top: 12px;
-    padding: 15px 20px;
+button {
+    padding: 17px 45px;
+    font-size: 22px;
+    font-weight: 800;
     border: none;
-    border-radius: 16px;
-    background: linear-gradient(135deg, #ff006e, #ff4fa3);
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(255, 0, 110, 0.35);
-}
-
-button:active,
-.btn:active {
-    transform: scale(0.97);
+    border-radius: 50px;
+    background: white;
+    color: #ff0844;
 }
 
 #msg {
-    min-height: 35px;
-    font-size: 22px;
+    font-size: 30px;
     font-weight: bold;
-}
-
-.good {
-    color: #55ff99;
-}
-
-.bad {
-    color: #ff5c5c;
 }
 
 .modal {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.75);
-    align-items: center;
+    background: rgba(0,0,0,0.65);
     justify-content: center;
-    padding: 20px;
-    z-index: 10;
+    align-items: center;
 }
 
 .modal-content {
-    max-width: 480px;
-    width: 100%;
-    padding: 28px;
+    width: 85%;
+    max-width: 420px;
+    padding: 30px;
+    background: white;
+    color: #ff0844;
     border-radius: 25px;
-    background: linear-gradient(135deg, #2b002d, #56002e);
-    box-shadow: 0 0 35px rgba(255, 0, 130, 0.45);
-    animation: pop 0.35s ease;
-}
-
-.modal-content h2 {
-    font-size: 34px;
-}
-
-.modal-content p {
-    font-size: 20px;
-    line-height: 1.5;
-}
-
-.heart {
-    position: fixed;
-    bottom: -30px;
-    font-size: 26px;
-    animation: fly 2s linear forwards;
-    z-index: 999;
-}
-
-@keyframes fly {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100vh) scale(1.7);
-        opacity: 0;
-    }
-}
-
-@keyframes pop {
-    from {
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@media (max-width: 600px) {
-    .center,
-    .container {
-        margin: 35px auto;
-        padding: 24px 16px;
-    }
-
-    h1 {
-        font-size: 31px;
-    }
-
-    h2 {
-        font-size: 21px;
-    }
-
-    #scrambled {
-        font-size: 36px;
-        letter-spacing: 5px;
-        word-break: break-word;
-    }
-
-    input {
-        font-size: 18px;
-        padding: 15px;
-    }
-
-    button,
-    .btn {
-        font-size: 18px;
-        padding: 15px;
-    }
-
-    .modal-content p {
-        font-size: 18px;
-    }
+    text-align: center;
+    font-size: 22px;
 }
