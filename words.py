@@ -1,5 +1,4 @@
 WORDS = [
-    "qalam","kitob", "daftar", "telefon", "kompyuter",
     "maktab", "orzu", "baxt", "sevgi", "ishonch",
     "hayot", "ilm", "dostlik", "osmon", "quyosh",
     "yulduz", "oy", "yer", "vatan", "inson",
