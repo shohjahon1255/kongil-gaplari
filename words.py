@@ -1,8 +1,8 @@
 WORDS = [
-    "iltifot", "xursandchilik",
-    "bilim", "zakovat", "tafakkur", "ijod", "rivojlanish",
+    "iltifot",
+    "bilim", "zakovat", "tafakkur", "ijod",
     "intilish", "gurur", "iftixor", "vatan", "muhabbat",
-    "soglik", "xotirjamlik", "nur", "kamolot", "baxtiyorlik",
+    "soglik", "nur", "kamolot",
     "sevinch", "gamxorlik", "rahmat", "duo", "yaxshilik",
     "fursat", "omad", "kelajak", "qadriyat", "mardlik",
     "maktab", "orzu", "baxt", "sevgi", "ishonch",
