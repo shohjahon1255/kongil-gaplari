@@ -1,18 +1,24 @@
 WORDS = [
+    "iltifot", "xursandchilik",
+    "bilim", "zakovat", "tafakkur", "ijod", "rivojlanish",
+    "intilish", "gurur", "iftixor", "vatan", "muhabbat",
+    "soglik", "xotirjamlik", "nur", "kamolot", "baxtiyorlik",
+    "sevinch", "gamxorlik", "rahmat", "duo", "yaxshilik",
+    "fursat", "omad", "kelajak", "qadriyat", "mardlik",
     "maktab", "orzu", "baxt", "sevgi", "ishonch",
     "hayot", "ilm", "dostlik", "osmon", "quyosh",
-    "yulduz", "oy", "yer", "vatan", "inson",
+    "yulduz", "yer", "vatan", "inson",
     "daryo", "tog", "gul", "bog", "shamol",
     "yomgir", "qor", "bahor", "yoz", "kuz",
-    "qish", "ota", "ona", "aka", "uka",
-    "opa", "singil", "oila", "uy", "xona","raketa",
+    "qish",  "ona", "uka",
+    "opa", "oila", "uy", "xona","raketa",
 
     "eshik", "deraza", "stol", "kursi", "sumka",
-    "ruchka", "chiroq", "devor", "pol", "shift",
+    "ruchka", "chiroq", "devor","singil", "pol", "shift",
     "non", "suv", "osh", "choy", "qahva",
-    "olma", "anor", "uzum", "shaftoli", "nok",
+    "olma", "anor","ota", "uzum", "shaftoli", "nok",
     "sabzi", "piyoz", "kartoshka", "bodring", "pomidor",
-    "baliq", "qush", "it", "mushuk", "ot",
+    "baliq", "qush", "it", "aka", "mushuk", "ot",
     "sigir", "quyon", "ari", "kapalak", "boyqush",
 
     "tezlik", "kuch", "zamon", "vaqt", "kun",
@@ -21,7 +27,12 @@ WORDS = [
 
     "mehnat", "zafar", "galaba", "harakat", "natija",
     "sabr", "umid", "quvonch", "tabassum", "mehr",
-    "oqibat", "sadoqat", "hurmat", "adolat", "haqiqat"
+    "oqibat", "sadoqat", "hurmat",  "iltifot", "xursandchilik",
+    "bilim", "zakovat", "tafakkur", "ijod", "rivojlanish",
+    "intilish", "gurur", "iftixor", "vatan", "muhabbat",
+    "soglik", "xotirjamlik", "nur", "kamolot", "baxtiyorlik",
+    "sevinch", "gamxorlik", "rahmat", "duo", "yaxshilik",
+    "fursat", "omad", "kelajak", "qadriyat", "mardlik","adolat", "haqiqat"
 ]
 
 MESSAGES = [
