@@ -26,10 +26,10 @@ WORDS = [
 
     "mehnat", "zafar", "galaba", "harakat", "natija",
     "sabr", "umid", "quvonch", "tabassum", "mehr",
-    "oqibat", "sadoqat", "hurmat",  "iltifot", "xursandchilik",
-    "bilim", "zakovat", "tafakkur", "ijod", "rivojlanish",
+    "oqibat", "sadoqat", "hurmat",  "iltifot", 
+    "bilim", "zakovat", "tafakkur", "ijod",
     "intilish", "gurur", "iftixor", "vatan", "muhabbat",
-    "soglik", "xotirjamlik", "nur", "kamolot", "baxtiyorlik",
+    "soglik", "xotirjamlik", "nur", "kamolot",
     "sevinch", "gamxorlik", "rahmat", "duo", "yaxshilik",
     "fursat", "omad", "kelajak", "qadriyat", "mardlik","adolat", "haqiqat"
 ]
